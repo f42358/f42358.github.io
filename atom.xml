@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-12T07:46:13.600Z</updated>
+  <updated>2020-04-14T14:40:37.242Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>计算机制图</title>
+    <title>圆内填充线</title>
     <link href="http://yoursite.com/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%88%B6%E5%9B%BE/"/>
     <id>http://yoursite.com/2020/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%88%B6%E5%9B%BE/</id>
     <published>2020-04-12T07:46:13.000Z</published>
-    <updated>2020-04-12T07:46:13.600Z</updated>
+    <updated>2020-04-14T14:40:37.242Z</updated>
     
     <summary type="html">
+    
+      
+      
+        &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;管理&quot;&gt;&lt;a href=&quot;#管理&quot; class=&quot;headerlink&quot; title=&quot;管理&quot;&gt;&lt;/a&gt;管理&lt;/h2&gt;
+      
     
     </summary>
     
     
+    
+      <category term="制图" scheme="http://yoursite.com/tags/%E5%88%B6%E5%9B%BE/"/>
+    
+      <category term="地信" scheme="http://yoursite.com/tags/%E5%9C%B0%E4%BF%A1/"/>
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   
