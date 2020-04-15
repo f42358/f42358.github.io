@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="四橙"><meta name="renderer" content="webkit"><meta name="copyright" content="四橙"><meta name="keywords" content="Hexo"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>圆内填充线 · 四橙</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/cat.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">四橙</div><div class="profile-signature">And forever has no end!</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">four oranges</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a><a href="/categories/">Categories</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a><a href="/categories/">Categories</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">圆内填充线</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2020-04-12</span></span><span class="post-intro-tags"><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="制图"> 制图</a><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="地信"> 地信</a><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="C#"> C#</a></span></div><div class="post-intro-read"><span> Word count: <span class="post-count">364</span> | Reading time: <span class="post-count">2</span>min</span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><script src="/assets/js/APlayer.min.js"> </script><h2 id="所用控件"><a href="#所用控件" class="headerlink" title="所用控件"></a>所用控件</h2><p>picturebox、buttun、textbox、laber</p>
+<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private Graphics g;</span><br><span class="line">private <span class="built_in">float</span> r, ang, d, x0, y0;   //半径，角度，间距</span><br><span class="line">private Point ptA;</span><br><span class="line">private bool bMouseDown;</span><br></pre></td></tr></table></figure>
+<h2 id="相关事件"><a href="#相关事件" class="headerlink" title="相关事件"></a>相关事件</h2><h3 id="buttonDraw-click事件"><a href="#buttonDraw-click事件" class="headerlink" title="buttonDraw_click事件"></a>buttonDraw_click事件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> r = float.Parse(textBoxR.Text);</span><br><span class="line">d = float.Parse(textBoxD.Text);</span><br><span class="line">ang = float.Parse(textBoxA.Text);</span><br><span class="line">bMouseDown = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="buttonFill-click事件"><a href="#buttonFill-click事件" class="headerlink" title="buttonFill_click事件"></a>buttonFill_click事件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">//一种方法为边计算边画，一种为储存晕线坐标。</span><br><span class="line">int k = 0, n;</span><br><span class="line">double os;</span><br><span class="line">double x1,x2,x3,x4,y1,y2,y3,y4;</span><br><span class="line">double x11, x21, x31, x41, y11, y21, y31, y41;</span><br><span class="line">ang = ang * (<span class="built_in">float</span>)Math.PI / 180;</span><br><span class="line">x0 = ptA.X;</span><br><span class="line">y0 = ptA.Y;</span><br><span class="line">n = (int)(r / d);</span><br><span class="line"><span class="keyword">for</span> (k = 0; k &lt;= n - 1; k = k + 1)</span><br><span class="line">      &#123;</span><br><span class="line">          os = Math.Sqrt(r * r - d * k * d * k);</span><br><span class="line">          x1 = x0 - os;</span><br><span class="line">          y1 = y0 - d * k;</span><br><span class="line">          x2 = x0 + os;</span><br><span class="line">          y2 = y0 - d * k;</span><br><span class="line">          x3 = x0 - os;</span><br><span class="line">          y3 = y0 + d * k;</span><br><span class="line">          x4 = x0 + os;</span><br><span class="line">          y4 = y0 + d * k;</span><br><span class="line"></span><br><span class="line">          //平移至原点</span><br><span class="line">          x1 = x1 - x0;</span><br><span class="line">          y1 = y1 - y0;</span><br><span class="line">          x2 = x2 - x0;</span><br><span class="line">          y2 = y2 - y0;</span><br><span class="line">          x3 = x3 - x0;</span><br><span class="line">          y3 = y3 - y0;</span><br><span class="line">          x4 = x4 - x0;</span><br><span class="line">          y4 = y4 - y0;</span><br><span class="line"></span><br><span class="line">          //旋转、平移回原点</span><br><span class="line">          x11 = x1 * Math.Cos(ang) - y1 * Math.Sin(ang) + x0;</span><br><span class="line">          y11 = y1 * Math.Cos(ang) + x1 * Math.Sin(ang) + y0;</span><br><span class="line">          x21 = x2 * Math.Cos(ang) - y2 * Math.Sin(ang) + x0;</span><br><span class="line">          y21 = y2 * Math.Cos(ang) + x2 * Math.Sin(ang) + y0;</span><br><span class="line">          x31 = x3 * Math.Cos(ang) - y3 * Math.Sin(ang) + x0;</span><br><span class="line">          y31 = y3 * Math.Cos(ang) + x3 * Math.Sin(ang) + y0;</span><br><span class="line">          x41 = x4 * Math.Cos(ang) - y4 * Math.Sin(ang) + x0;</span><br><span class="line">          y41 = y4 * Math.Cos(ang) + x4 * Math.Sin(ang) + y0;</span><br><span class="line"></span><br><span class="line">          g.DrawLine(new Pen(Color.Black, 1), (<span class="built_in">float</span>)x11, (<span class="built_in">float</span>)y11, (<span class="built_in">float</span>)x21, (<span class="built_in">float</span>)y21);</span><br><span class="line">          g.DrawLine(new Pen(Color.Black, 1), (<span class="built_in">float</span>)x31, (<span class="built_in">float</span>)y31, (<span class="built_in">float</span>)x41, (<span class="built_in">float</span>)y41);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="buttunClean-click事件"><a href="#buttunClean-click事件" class="headerlink" title="buttunClean_click事件"></a>buttunClean_click事件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">textBoxR.Text = <span class="string">""</span>;</span><br><span class="line">textBoxA.Text = <span class="string">""</span>;</span><br><span class="line">textBoxD.Text = <span class="string">""</span>;</span><br><span class="line">g.Clear(Color.White);</span><br></pre></td></tr></table></figure>
+<h3 id="pictureBox1-MouseDown事件"><a href="#pictureBox1-MouseDown事件" class="headerlink" title="pictureBox1_MouseDown事件"></a>pictureBox1_MouseDown事件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (bMouseDown == <span class="literal">true</span>)</span><br><span class="line">     &#123;</span><br><span class="line">       ptA.X = e.X;</span><br><span class="line">       ptA.Y = e.Y;</span><br><span class="line">       bMouseDown = <span class="literal">false</span>;</span><br><span class="line">       g.DrawEllipse(new Pen(Color.Red, 1), ptA.X - r, ptA.Y - r, 2 * r, 2 * r);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果图"><a href="#结果图" class="headerlink" title="结果图"></a>结果图</h2><img src="/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/result.jpg" class="">
+
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite.com">四橙</a></p><p> <span>Link:  </span><a href="http://yoursite.com/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/">http://yoursite.com/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/3.0" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="nextSlogan" href="/2020/04/12/HTML%E4%B8%8ECSS/" title="HTML与CSS "><span>NextPost ></span><br><span class="nextTitle">HTML与CSS </span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo" target="_blank" rel="noopener"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?" + 'd27e7d492bbf68b1b71575847a1bbb87';
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#所用控件"><span class="toc-number">1.</span> <span class="toc-text">所用控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量"><span class="toc-number">2.</span> <span class="toc-text">全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关事件"><span class="toc-number">3.</span> <span class="toc-text">相关事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#buttonDraw-click事件"><span class="toc-number">3.1.</span> <span class="toc-text">buttonDraw_click事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buttonFill-click事件"><span class="toc-number">3.2.</span> <span class="toc-text">buttonFill_click事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#buttunClean-click事件"><span class="toc-number">3.3.</span> <span class="toc-text">buttunClean_click事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pictureBox1-MouseDown事件"><span class="toc-number">3.4.</span> <span class="toc-text">pictureBox1_MouseDown事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果图"><span class="toc-number">4.</span> <span class="toc-text">结果图</span></a></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
