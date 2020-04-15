@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://f42358.github.io.com/"/>
+  <link href="http://f42358.github.io/"/>
   <updated>2020-04-15T09:31:57.109Z</updated>
-  <id>http://f42358.github.io.com/</id>
+  <id>http://f42358.github.io/</id>
   
   <author>
     <name>四橙</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>圆内填充线</title>
-    <link href="http://f42358.github.io.com/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/"/>
-    <id>http://f42358.github.io.com/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/</id>
+    <link href="http://f42358.github.io/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/"/>
+    <id>http://f42358.github.io/2020/04/12/%E5%9C%86%E5%86%85%E5%A1%AB%E5%85%85/</id>
     <published>2020-04-12T07:46:13.000Z</published>
     <updated>2020-04-15T09:31:57.109Z</updated>
     
@@ -33,21 +33,21 @@
     </summary>
     
     
-      <category term="-计算机制图" scheme="http://f42358.github.io.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%88%B6%E5%9B%BE/"/>
+      <category term="-计算机制图" scheme="http://f42358.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%88%B6%E5%9B%BE/"/>
     
     
-      <category term="制图" scheme="http://f42358.github.io.com/tags/%E5%88%B6%E5%9B%BE/"/>
+      <category term="制图" scheme="http://f42358.github.io/tags/%E5%88%B6%E5%9B%BE/"/>
     
-      <category term="地信" scheme="http://f42358.github.io.com/tags/%E5%9C%B0%E4%BF%A1/"/>
+      <category term="地信" scheme="http://f42358.github.io/tags/%E5%9C%B0%E4%BF%A1/"/>
     
-      <category term="C#" scheme="http://f42358.github.io.com/tags/C/"/>
+      <category term="C#" scheme="http://f42358.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>HTML与CSS </title>
-    <link href="http://f42358.github.io.com/2020/04/12/HTML%E4%B8%8ECSS/"/>
-    <id>http://f42358.github.io.com/2020/04/12/HTML%E4%B8%8ECSS/</id>
+    <link href="http://f42358.github.io/2020/04/12/HTML%E4%B8%8ECSS/"/>
+    <id>http://f42358.github.io/2020/04/12/HTML%E4%B8%8ECSS/</id>
     <published>2020-04-12T06:46:24.000Z</published>
     <updated>2020-04-14T13:42:59.969Z</updated>
     
@@ -61,10 +61,10 @@
     </summary>
     
     
-      <category term="-前端" scheme="http://f42358.github.io.com/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="-前端" scheme="http://f42358.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="前端" scheme="http://f42358.github.io.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://f42358.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
